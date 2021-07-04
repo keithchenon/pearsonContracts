@@ -1,0 +1,17 @@
+= 01 Learn how to reference request from response (5)
+
+== Before
+
+* Open https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.1.0.M2/single/spring-cloud-contract.html#_referencing_the_request_from_the_response
+
+== Presentation
+
+* Show the `producer` application
+** Show the Groovy contract and explain the `fromRequest()`
+** Show the YAML contract and explain the `{{{ }}}`
+** Show the documentation where we explain all possibilities
+* Show the generated test
+* Show the stub
+* Go to the consumer side
+** Run the test
+** Show the logs of the test and the test setup

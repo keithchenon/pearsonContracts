@@ -1,0 +1,11 @@
+= 03 Use SC-Contract with NodeJS application as a producer (10)
+
+== Presentation
+
+* Slides
+* Run the app and show how it's working
+** `cd src/main/npm && ./setup_infra.sh && node app`
+** `cd json && PORT=3000 ./1_request.sh && PORT=3000 ./2_request.sh`
+* Show `app.js` and show the `api/books`
+* Show contracts and explain what we want to achieve
+* Go to `run_tests.sh` and comment out traps and stub runner

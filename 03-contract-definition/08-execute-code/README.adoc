@@ -1,0 +1,6 @@
+= 08 Execute code on the producer side (5)
+
+* Show the `should_have_info_endpoint.groovy`
+** Explain that in some cases you want to execute code to generate / verify things
+** Show the `execute` piece
+** Show the `byCommand` for matchers

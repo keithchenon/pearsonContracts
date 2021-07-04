@@ -1,0 +1,16 @@
+= 01 Learn the basics of SC-Contract Maven Plugin (5)
+
+== Before
+
+* Remove plugin setup
+* Open https://cloud.spring.io/spring-cloud-static/Greenwich.M3/single/spring-cloud.html#maven-project
+* Open https://cloud.spring.io/spring-cloud-contract/spring-cloud-contract-maven-plugin
+
+== Presentation
+
+* Slides
+* Go to `pom.xml` and start setting up the plugin
+* Explain the `goals` and mention that we will talk about `run` too
+* Run `convert` manually
+* Run `run` manually
+* Show the links

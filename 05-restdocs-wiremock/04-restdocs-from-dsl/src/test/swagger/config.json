@@ -1,0 +1,8 @@
+{
+  "title" : "REST Docs to Swagger example",
+  "version" : "0.1",
+  "host" : "http://localhost:8080",
+  "basePath" : "",
+  "schemes" : "http",
+  "description" : "An example of how to transform the output of Spring REST Docs to Swagger"
+}

@@ -1,0 +1,19 @@
+= 03 See how SC-Contract integrates with Spring AMQP (5)
+
+== Presentation
+
+* Producer
+** Show the `pom.xml`
+** Show the contracts
+** Show the production code
+** Show the property `stubrunner.amqp.enabled: true`
+** Show the base class
+*** Mention that the annotation is important
+*** Explain what's going on
+** Show the generated test
+* Consumer
+** Show the `pom.xml`
+** Show the production code
+** Show the tests
+** RabbitMQ is not started
+** Trigger via label

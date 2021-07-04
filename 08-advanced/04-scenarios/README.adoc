@@ -1,0 +1,19 @@
+= 04 Use stateful stubs: Contracts representing scenarios (5)
+
+== Presentation
+
+* Sometimes your stubs need state
+** It's not really a recommended practice
+** It's better to keep the stubs extremely simple
+* If you really need to store state, you can introduce stateful stubs by providing a prefix to the contract name
+* Let us assume that we have contracts representing a saturday night situation in a bar
+** you were sober, now you're tipsy
+** you were tipsy, now you're drunk
+** you were drunk, now you're wasted
+** in other words whenever we hit an endpoint we would like it to reflect that state
+** note the prefixes in front of contracts
+** let's look at the contracts
+* Show the generated tests
+* Show the production code
+* Show how we manage state in the base class
+* Show the client code

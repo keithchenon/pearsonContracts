@@ -1,0 +1,28 @@
+# Show YamlContract
+# 1 description (single line, multiline), priority, name, ignored, request, response
+description: |
+  Hello
+  Some meaningful comment
+# the lower the value the higher the priority
+priority: 100
+name: "should_use_a_different_name"
+#ignored: true
+input:
+  # triggeredBy(..)
+  messageBody:
+    bookName: 'foo'
+  messageFrom: input
+  messageHeaders:
+    sample: header
+  assertThat: equals(this)
+# we'll talk about those later
+# matchers:
+outputMessage:
+  sentTo: output
+  body:
+    bookName: 'foo'
+  headers:
+    'BOOK-NAME': 'foo'
+  # we'll talk about those later
+  #matchers
+  assertThat: equals(this)

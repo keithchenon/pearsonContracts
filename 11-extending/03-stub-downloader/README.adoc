@@ -1,0 +1,15 @@
+= 03 Develop a custom Stub Downloader (10)
+
+== Presentation
+
+* Slides
+* Let us assume that we would like to fetch the stubs directly (like with `@AutoConfigureWireMock` but via `@AutoConfigureStubRunner`)
+* We would like the prefix to be `stubs://`
+* Show the `stub-downloader` project
+** Show the `pom.xml`
+** Show the `FileStubDownloader`
+** Show the `StubDownloaderBuilder` interface
+* `FileStubDownloader`
+** explain method by method
+* Show `producer`
+** Show the `pom.xml` and the `build.gradle`

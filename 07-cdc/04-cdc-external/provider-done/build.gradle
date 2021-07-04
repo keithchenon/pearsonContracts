@@ -1,0 +1,87 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		mavenLocal()
+		maven { url "http://repo.spring.io/snapshot" }
+		maven { url "http://repo.spring.io/milestone" }
+		maven { url "http://repo.spring.io/release" }
+	}
+
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${findProperty('bootVersion') ?: bootVersion}"
+		classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:${findProperty('verifierVersion') ?: verifierVersion}"
+	}
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	maven { url "http://repo.spring.io/snapshot" }
+	maven { url "http://repo.spring.io/milestone" }
+	maven { url "http://repo.spring.io/release" }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'spring-cloud-contract'
+apply plugin: 'maven-publish'
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:$BOM_VERSION"
+	}
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
+
+	testCompile("org.springframework.cloud:spring-cloud-stream-test-support")
+	testCompile("org.springframework.cloud:spring-cloud-starter-contract-verifier")
+}
+
+contracts {
+	packageWithBaseClasses = 'com.example'
+	contractRepository {
+		repositoryUrl('http://admin:password@localhost:8081/artifactory/libs-release-local')
+	}
+	setContractsMode("LOCAL")
+	contractDependency {
+		groupId = "com.example"
+		artifactId = "07-04-external-contracts"
+		delegate.version = "+"
+	}
+	baseClassMappings {
+		baseClassMapping(".*messaging.*", "com.example.BeerMessagingBase")
+		baseClassMapping(".*rest.*", "com.example.BeerRestBase")
+	}
+}
+
+test {
+	testLogging {
+		exceptionFormat = 'full'
+	}
+}
+
+publishing {
+	repositories {
+		maven {
+			url "http://localhost:8081/artifactory/libs-release-local"
+			credentials {
+				username 'admin'
+				password 'password'
+			}
+		}
+	}
+	publications {
+		mavenJava(MavenPublication) {
+			artifactId project.name
+			from components.java
+		}
+	}
+}

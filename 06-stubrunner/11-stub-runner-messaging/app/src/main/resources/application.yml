@@ -1,0 +1,10 @@
+stubrunner:
+  ids: com.example:producer
+  # IMPORTANT! BY DEFAULT CLOUD IS STUBBED OUT!
+  cloud.stubbed.discovery.enabled: false
+  stubs-mode: local
+spring:
+  application:
+    name: stubrunner
+  rabbitmq:
+    host: rabbitmq

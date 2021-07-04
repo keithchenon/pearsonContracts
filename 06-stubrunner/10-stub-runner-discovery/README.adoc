@@ -1,0 +1,13 @@
+= 10  Connect Stub Runner with a real service discovery (5)
+
+== Presentation
+
+* We use Service Discovery in microservice environment
+* Show the `pom.xml` with zookeeper discovery
+* Show the `DemoApplication`
+* The standalone application can register stubs in real service discovery
+* Run docker with zookeeper
+** Show with `zkCli` that there are no entires
+* Run the application
+** Show with `zkCli` that stub got registerd
+* `http :10815/foo`

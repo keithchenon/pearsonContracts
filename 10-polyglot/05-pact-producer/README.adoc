@@ -1,0 +1,21 @@
+= 05 Fetch PACT contracts from the broker via SC-Contract (10)
+
+== Before
+
+* Start the broker
+* Ignore the test
+* Remove the gradle and docker setup from maven
+* Open https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.1.0.M2/single/spring-cloud-contract.html#pact-stub-downloader
+
+== Presentation
+
+* Slides
+* As a reminder. As consumers we've produced the PACTs
+** Go to the consumer side and run the build
+* Show the broker were the PACTs remain
+* Show the Spring Cloud Contract Maven setup
+** Run the build, explain what's happening
+* Show the Spring Cloud Contract Gradle setup
+** Important to put dep in buildscript
+** Run the build, explain what's happening
+* Show the documentation where the properties for Pact integration are

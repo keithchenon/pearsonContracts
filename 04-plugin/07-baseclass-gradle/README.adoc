@@ -1,0 +1,3 @@
+= 07 Define base classes with SC-Contract in Gradle (5)
+
+* Go through the projects and explain everything

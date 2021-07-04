@@ -1,0 +1,23 @@
+= 04 Upload PACT contracts to the broker via SC-Contract (10)
+
+== Before
+
+* Start the broker
+* Ignore the test
+* Remove the gradle and docker setup from maven
+
+== Presentation
+
+* Slides
+* We've managed to explain how things differ between SCC and PACT
+* If for some reason you need to use PACT, you can use it via SCC
+* Show the `pom.xml` with `pact` dep
+* Show the contracts
+* We would like to upload the PACT files to the broker
+* Explain what `ToFileContractsTransformer` is
+** Allows to convert files from one format to another
+** Show `pom.xml` conversion and Pact plugin
+** Show `build.gradle` conversion and Pact plugin
+** Run `./mvnw clean install`
+** Run `./gradlew clean build publishToMavenLocal`
+* Unignore the test and show that you can use the PACT broker to generate stubs on the fly

@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Spring-Cloud-Contract-Maven-Plugin-Version: 2.1.0.BUILD-SNAPSHOT
+Archiver-Version: Plexus Archiver
+Created-By: 25.141-b15 (Oracle Corporation)
+

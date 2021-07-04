@@ -1,0 +1,4 @@
+= 06 Define base classes with SC-Contract in Maven (5)
+
+* Show the slide
+* Go through the projects and explain everything

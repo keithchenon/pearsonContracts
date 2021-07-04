@@ -1,0 +1,24 @@
+Initial commit
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Mon Nov 5 16:53:51 2018 +0100
+#
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   .gitignore
+#	new file:   META-INF/com.example/05-beer-api-producer-external/0.0.1-SNAPSHOT/beer-api-consumer/messaging/shouldSendAcceptedVerification.groovy
+#	new file:   META-INF/com.example/05-beer-api-producer-external/0.0.1-SNAPSHOT/beer-api-consumer/messaging/shouldSendRejectedVerification.groovy
+#	new file:   META-INF/com.example/05-beer-api-producer-external/0.0.1-SNAPSHOT/beer-api-consumer/rest/shouldGrantABeerIfOldEnough.groovy
+#	new file:   META-INF/com.example/05-beer-api-producer-external/0.0.1-SNAPSHOT/beer-api-consumer/rest/shouldRejectABeerIfTooYoung.groovy
+#	new file:   META-INF/com.example/05-beer-api-producer-external/0.0.1-SNAPSHOT/pom.xml
+#	new file:   META-INF/com.example/beer-api-producer-external/0.0.1-SNAPSHOT/beer-api-consumer/messaging/shouldSendAcceptedVerification.groovy
+#	new file:   META-INF/com.example/beer-api-producer-external/0.0.1-SNAPSHOT/beer-api-consumer/messaging/shouldSendRejectedVerification.groovy
+#	new file:   META-INF/com.example/beer-api-producer-external/0.0.1-SNAPSHOT/beer-api-consumer/rest/shouldGrantABeerIfOldEnough.groovy
+#	new file:   META-INF/com.example/beer-api-producer-external/0.0.1-SNAPSHOT/beer-api-consumer/rest/shouldRejectABeerIfTooYoung.groovy
+#	new file:   META-INF/com.example/beer-api-producer-external/0.0.1-SNAPSHOT/pom.xml
+#

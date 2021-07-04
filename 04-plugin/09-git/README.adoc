@@ -1,0 +1,15 @@
+= 09 Upload stubs to Git (5)
+
+== Before
+
+* Create 2 copies of `git-repo`. For Maven & Gradle
+* Move `git` to `.git` in `git-repo`
+
+== Presentation
+
+* Slides
+* Show the `git-repo` and explain the folder structure and copy the path
+* Show the `pom.xml` and `build.gradle`, explain the setup and paste the path
+* Explain the `publishStubsToScm`
+* Run the Maven build, explain what happened, show the git repo
+* Run the Gradle build, explain what happened, show the git repo

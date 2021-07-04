@@ -1,0 +1,13 @@
+= 01 Learn the basics of SC-Contract docker images  (10)
+
+== Before
+
+* Open https://github.com/spring-cloud/spring-cloud-contract/tree/master/docker/spring-cloud-contract-docker
+* Open https://github.com/spring-cloud/spring-cloud-contract/tree/master/docker/spring-cloud-contract-stub-runner-docker
+* Open https://github.com/spring-cloud/spring-cloud-contract/tree/master/spring-cloud-contract-stub-runner-boot
+
+== Presentation
+
+* Slides
+* Demo of the code for verifier docker
+* Demo of the code for stub runner docker

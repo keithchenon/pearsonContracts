@@ -1,0 +1,37 @@
+request:
+  method: GET
+  url: /get/1
+  headers:
+    foo: foo
+  body:
+    duck: foo
+  cookies:
+    foo: foo
+  matchers:
+    url:
+      command: 'generateUrl()'
+    headers:
+      - key: foo
+        command: 'generateHeaderValue()'
+    cookies:
+      - key: foo
+        command: 'generateCookie()'
+response:
+  status: 200
+  body:
+    duck: 123
+    alpha: abc
+    beta: bcd
+  headers:
+    bar: bar
+  matchers:
+    headers:
+    - key: bar
+      command: 'assertThatIsAString($it)'
+    body:
+    - path: $.duck
+      type: by_command
+      value: 'assertThatIsANumber($it)'
+    - path: $.alpha
+      type: by_command
+      value: 'assertThatIsAString($it)'

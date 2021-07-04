@@ -1,0 +1,21 @@
+= 02 Write a custom Contract Converter (10)
+
+== Presentation
+
+* Slides
+* Let's say we would like to store a contract as a `properties` file
+* Show the `converter` project
+** Show the `PropertiesContractConverter` class
+** Explain the `ContractConverter` and `ContractStorer`
+** is accepted, To contract, from contract, to bytes
+* PropertiesContractConverter
+** is accepted for `*.properties`
+** show logic of simple conversion from a Properties to Contract
+** HINT: Use `@CompileScope`
+** `spring.factories`
+* Show the `producer` project
+** Show the contract
+** Show the `pom.xml` and `build.gradle`
+* Show the `consumer` project
+** Show the `pom.xml` and `build.gradle`
+** Run the test

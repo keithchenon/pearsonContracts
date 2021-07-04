@@ -1,0 +1,15 @@
+= 04 Fetch stubs from classpath (5)
+
+== Presentation
+
+* In Spring we eat our dog food, Sagan is the application behind `spring.io` website
+* Classpath is the default
+* Show the `pom.xml` and show that we upload stubs
+** Mention that the transitivity is important
+* Show Artifactory, show that the JAR is uploaded
+* Show that you can use a JUnit rule or `@AutoConfigureStubRunner`
+* Run the test, show the test is passing
+* Show the logs and explain what `AetherStubDownloader` does
+* Show the started WireMocks
+
+IMPORTANT: Say that if you have a multimodule Maven / Gradle project, Intellij will not work with classpath mode. It will work from the command line but not from the IDE.

@@ -1,0 +1,15 @@
+= 05 Learn the folder structure for contracts (5)
+
+* Show the slides
+** explain the folder structure when contracts lay with the producer
+** explain the folder structure when contracts lay in an external repo
+* Go to `foo-service` folder
+** show the maven setup
+** explain why we don't want to generate tests
+** run `mvn clean install`
+** show that no tests got executed
+** show that stubs got installed locally
+** show and run `run.sh` and show that you can run the stubs in your tests
+* Go to root
+** Show the `assembly` plugin setup
+** run `./mvnw clean install` show the JAR with all contracts

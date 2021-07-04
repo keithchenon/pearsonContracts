@@ -1,0 +1,13 @@
+version: "2"
+services:
+  stubrunner:
+    image: "springcloud/spring-cloud-contract-stub-runner:2.1.0.BUILD-SNAPSHOT"
+    environment:
+      STUBRUNNER_STUBS_MODE: LOCAL
+      STUBRUNNER_IDS: "com.example:06-08-app:0.0.1-SNAPSHOT:stubs:9876"
+      SERVER_PORT: 8083
+    ports:
+      - "8083:8083"
+      - "9876:9876"
+    volumes:
+      - ${HOME}/.m2/:/root/.m2:ro

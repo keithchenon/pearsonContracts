@@ -1,0 +1,11 @@
+= 06 Set up regular expressions in a Groovy contract (5)
+
+* Show slides
+* Show an example of `should_have_info_endpoint.groovy`
+** `urlPath` with a regular expression that will be generated on the fly
+** `queryParameters` having special methods `equalTo`, `containing` etc.
+** `consumer(...), c(...), producer(...), p(...)` used in combination
+** the `$()` and `value()` methods
+** methods starting with `any...` can be used in such a way that the other, concrete side will be automatically generated
+** Check the docs for more info https://cloud.spring.io/spring-cloud-contract/single/spring-cloud-contract.html#_regular_expressions
+** Show the generated test and stubs

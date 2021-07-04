@@ -1,0 +1,4 @@
+stubrunner:
+  stubs-mode: LOCAL
+  ids:
+    - com.example:06-08-app:0.0.1-SNAPSHOT:stubs:9876

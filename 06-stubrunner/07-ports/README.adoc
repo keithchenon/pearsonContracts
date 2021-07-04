@@ -1,0 +1,5 @@
+= 07 Work with random ports in Stub Runner (5)
+
+* Explain that fixed ports for stubs are typically a bad idea
+* You want to run tests in parallel, so you don't want to have fixed ports
+* Show `DemoApplicationTests` and the rule one

@@ -1,0 +1,20 @@
+= 03 See how SC-Contract integrates with Spring AMQP (5)
+
+== Presentation
+
+* Producer
+** Show the `pom.xml`
+*** Mention the `test-binder`
+** Show the contracts
+** Show the production code
+** The flow the same as it was
+** Show the base class
+*** Mention that the annotation is important
+** Show the generated test
+* Consumer
+** Show the `pom.xml`
+** Show the production code
+** Explain the flow
+* Show the tests
+** Explain that you can trigger the output message
+** SCC creates a fake route for you so it's enough for you to send a proper message and it will be matched and an output one will be sent

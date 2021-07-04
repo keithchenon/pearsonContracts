@@ -1,0 +1,32 @@
+=  Hands-On Guide to Spring Cloud Contract LiveLessons by Marcin Grzejszczak
+
+This repository contains all the code presented during the Hands-On Guide to Spring Cloud Contract LiveLessons.
+
+== Folder structure
+
+* Each lesson has its own folder (e.g `01-introduction-to-testing`).
+* Whenever you see a folder starting with `00` - that's a helper folder that is used for other sublessons
+* Each folder contains a `README.adoc` with steps taken during recording of a lesson
+
+== Prerequisites
+
+To run the samples you need to have the following installed:
+
+* JDK (min. 8)
+* Docker
+* Docker Compose
+* Curl
+* JQ
+* Maven
+
+Nice to have:
+
+* SDKMan (you can install Maven and JDK with it)
+
+== How to build it?
+
+Just run the maven build
+
+```
+$ ./mvnw clean install
+```

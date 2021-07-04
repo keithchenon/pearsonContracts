@@ -1,0 +1,56 @@
+---
+description: |
+  Hello
+  Some meaningful comment
+priority: 100
+input:
+  messageBody:
+    bookName: 'foo'
+  messageFrom: input
+  messageHeaders:
+    sample: header
+  assertThat: equals(this)
+outputMessage:
+  sentTo: output
+  body:
+    bookName: 'foo'
+  headers:
+    'BOOK-NAME': 'foo'
+  assertThat: equals(this)
+---
+description: |
+  Hello
+  Some meaningful comment
+request:
+  method: GET
+  url: "/info"
+  headers:
+    Content-Type: application/json
+  body:
+    some: "value"
+response:
+  status: 200
+  headers:
+    second: "value"
+    third: "value"
+  body:
+    some: "value"
+---
+description: |
+  Hello
+  Some meaningful comment
+name: hacked_yml
+request:
+  method: GET
+  url: "/info2"
+  headers:
+    Content-Type: application/json
+  body:
+    some: "value"
+response:
+  status: 200
+  headers:
+    second: "value"
+    third: "value"
+  body:
+    some: "value"

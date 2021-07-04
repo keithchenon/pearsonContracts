@@ -1,0 +1,12 @@
+= 03 See how SC-Contract integrates with Spring Integration (5)
+
+== Presentation
+
+* Producer
+** Show the `pom.xml`
+** Show the contracts
+** Show the production code
+* Consumer
+** Show the `pom.xml`
+** Show the production code
+** Explain the flow

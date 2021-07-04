@@ -1,0 +1,78 @@
+# Show YamlContract
+# 1 description (single line, multiline), priority, name, ignored, request, response
+description: |
+  Hello
+  Some meaningful comment
+# the lower the value the higher the priority
+priority: 100
+name: "should_use_a_different_name"
+#ignored: true
+request:
+  method: GET
+  #3 first URL
+  url: "/info"
+  #4 url path as syntactic sugar
+  urlPath: "/info"
+  queryParameters:
+    first: "value"
+    second: "value"
+  headers:
+    Content-Type: application/json
+    #5 body (no sense for GET; show text, list, map, full json text, file)
+  # body: "value"
+  #	body:
+  #	  - "list"
+  #	  - "of"
+  #	  - values
+  #   body: '{ "some": "value" }'
+  #	bodyFromFile: some_file.json
+  body:
+    some: "value"
+    #6 cookies
+  cookies:
+    first: "value"
+  multipart:
+    params:
+      key: value
+    named:
+      - paramName: name
+        fileName: filename.csv
+        fileContent: foo
+# we'll talk about matchers later
+  matchers:
+    body:
+    headers:
+      - key: Content-Type
+        regex: .*
+    multipart:
+      params:
+        - key: params
+          regex: .*
+      named:
+        - paramName: name
+#8 - response
+response:
+  #9 - status
+  status: 200
+  #11 - async for futures etc.
+  async: true
+  #12 - headers
+  headers:
+  #show header delegates for keys and value
+    second: "value"
+    third: "value"
+  #13 - cookies
+  cookies:
+    first: value
+  # body: "value"
+  #	body:
+  #	  - "list"
+  #	  - "of"
+  #	  - values
+  #   body: '{ "some": "value" }'
+  #	bodyFromFile: some_file.json
+  body:
+    some: "value"
+
+# In 2.0.x - invalid YAML conversion will swallow an exception
+# From 2.1.x - exception will be propagated

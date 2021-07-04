@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.example</groupId>
+		<artifactId>contract-testing-parent</artifactId>
+		<version>0.0.1.BUILD-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<artifactId>06-stubrunner</artifactId>
+	<packaging>pom</packaging>
+
+	<name>06-stubrunner</name>
+	<description>06-stubrunner</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>02-junit</module>
+		<module>03-remote</module>
+		<module>04-classpath</module>
+		<module>05-local</module>
+		<module>06-git/git-repo</module>
+		<module>06-git/demo</module>
+		<module>07-ports</module>
+		<module>08-stubs-per-consumer</module>
+		<module>09-stub-runner-boot</module>
+		<module>10-stub-runner-discovery</module>
+		<module>11-stub-runner-messaging</module>
+		<module>12-stub-runner-debug</module>
+	</modules>
+
+</project>

@@ -1,0 +1,14 @@
+= 05 Stub out service discovery (5)
+
+== Presentation
+
+* If we're using Service Discovery we don't want to run the server each time
+** We know that we can run Stub Runner Boot, but we want the tests to be fast
+** How can we achieve it with Spring Cloud Contract
+* Show the producer, nothing interesting there
+* Show the consumer production code, explain load balanced once again
+* Show the test
+** Explain that by default we will map the server id to the artifact id of the WireMock server
+** Rarely do you actually do it like this, you typically have a name for your collaborator, like `person-service` or sth like this
+** That's why you can do a mapping (show `application.yml`)
+** That way Spring Cloud Contract knows how to route your call

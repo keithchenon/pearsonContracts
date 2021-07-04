@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.example</groupId>
+	<artifactId>04_01_maven_plugin</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>04_01_maven_plugin</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.1.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Greenwich.BUILD-SNAPSHOT</spring-cloud.version>
+
+		<!-- Spring Cloud Contract properties -->
+		<spring.cloud.contract.verifier.skip>false</spring.cloud.contract.verifier.skip>
+		<spring.cloud.contract.verifier.jar.skip>false
+		</spring.cloud.contract.verifier.jar.skip>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+				<!-- You need to provide the version of sc-contract manually
+				since it doesn't come from Spring Boot parent
+				-->
+				<version>2.1.0.BUILD-SNAPSHOT</version>
+				<!-- You can set the goals manually -->
+				<goals>
+					<goal>convert</goal>
+					<goal>generateTests</goal>
+					<!-- Picks the converted .json files and creates a jar. Requires convert to be executed first -->
+					<goal>generateStubs</goal>
+				</goals>
+				<!-- Match all goals by default-->
+				<extensions>true</extensions>
+				<configuration>
+					<!-- Base configuration-->
+					<skip>false</skip>
+					<skipTestOnly>false</skipTestOnly>
+					<jarSkip>false</jarSkip>
+
+					<!-- Test setup -->
+					<baseClassForTests>com.example.demo.BaseClass</baseClassForTests>
+					<!--<packageWithBaseClasses></packageWithBaseClasses>-->
+					<!--<baseClassMappings>-->
+					<!--<baseClassMapping>-->
+					<!--</baseClassMapping>-->
+					<!--</baseClassMappings>-->
+					<!-- If not set, will be resolved from other properties-->
+					<basePackageForTests>com.example</basePackageForTests>
+					<testMode>MOCKMVC</testMode>
+					<testFramework>JUNIT</testFramework>
+					<generatedTestSourcesDir>target/generated-test-sources/contracts
+					</generatedTestSourcesDir>
+					<!-- from 2.1.0 -->
+					<includedFiles></includedFiles>
+					<imports></imports>
+					<staticImports></staticImports>
+					<!-- class name required: For JUnit5 adds additional ExtendWith(...) class -->
+					<ruleClassForTests></ruleClassForTests>
+
+					<!-- Contract location -->
+					<contractsDirectory>src/test/resources/contracts</contractsDirectory>
+					<!-- Fetching contracts from external location -->
+					<!--<contractsPath>/foo</contractsPath>-->
+					<!--<contractsMode>REMOTE</contractsMode>-->
+					<!--<contractsRepositoryUrl>http://foo.com</contractsRepositoryUrl>-->
+					<!--<contractsRepositoryProxyHost>host</contractsRepositoryProxyHost>-->
+					<!--<contractsRepositoryProxyPort>1234</contractsRepositoryProxyPort>-->
+					<!--<contractsRepositoryUsername>user</contractsRepositoryUsername>-->
+					<!--<contractsRepositoryPassword>pass</contractsRepositoryPassword>-->
+					<!--<contractDependency>-->
+					<!--<groupId>com.example</groupId>-->
+					<!--<artifactId>contracts</artifactId>-->
+					<!--<version>1.0.0.RELEASE</version>-->
+					<!--<classifier>stubs</classifier>-->
+					<!--</contractDependency>-->
+					<deleteStubsAfterTest>false</deleteStubsAfterTest>
+
+					<!-- Stubs -->
+					<destination>target/stubs</destination>
+
+					<!-- Stub & Contract JAR-->
+					<excludeBuildFolders>false</excludeBuildFolders>
+					<excludedFiles></excludedFiles>
+
+					<!-- Extension configuration -->
+					<contractsProperties>
+						<foo>bar</foo>
+					</contractsProperties>
+
+					<!-- Experimental -->
+					<assertJsonSize>false</assertJsonSize>
+					<!-- No longer required in Greenwich (2.1.0) -->
+					<contractsSnapshotCheckSkip>false</contractsSnapshotCheckSkip>
+				</configuration>
+				<!-- Add custom extensions to Spring Cloud Contract -->
+				<dependencies>
+					<dependency>
+						<groupId>commons-io</groupId>
+						<artifactId>commons-io</artifactId>
+						<version>2.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<!-- If you want to use snapshots / milestones you have to add
+	the plugin repository too
+	-->
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>

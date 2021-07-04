@@ -1,0 +1,124 @@
+buildscript {
+	ext {
+		springBootVersion = "${findProperty('bootVersion') ?: bootVersion}"
+		contractVersion = "${findProperty('verifierVersion') ?: verifierVersion}"
+	}
+	repositories {
+		mavenCentral()
+		mavenLocal()
+		maven { url "http://repo.spring.io/snapshot" }
+		maven { url "http://repo.spring.io/milestone" }
+		maven { url "http://repo.spring.io/release" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		// Add contract plugin to the classpath
+		classpath("org.springframework.cloud:spring-cloud-contract-gradle-plugin:${contractVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+// apply the contract plugin
+apply plugin: 'spring-cloud-contract'
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	maven { url "http://repo.spring.io/snapshot" }
+	maven { url "http://repo.spring.io/milestone" }
+	maven { url "http://repo.spring.io/release" }
+}
+
+
+ext {
+	springCloudVersion = "${findProperty('$BOM_VERSION') ?: BOM_VERSION}"
+}
+
+dependencies {
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation('org.springframework.cloud:spring-cloud-starter-contract-verifier')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+// Add the contract plugin setup
+
+contracts {
+	// Test setup
+	// deprecated:
+	// testFramework = "JUNIT"
+	testFramework = "JUNIT"
+	testMode = "MOCKMVC"
+	generatedTestSourcesDir = new File(project.buildDir, "generated-test-sources/contracts")
+	// If not set, will be resolved from other properties
+	basePackageForTests = "com.example"
+	baseClassForTests = "com.example.demo.BaseClass"
+	/*packageWithBaseClasses = 'com.example'
+	baseClassMappings {
+		baseClassMapping("", "")
+	}*/
+	// Defaults to "Test" or "Spec"
+	nameSuffixForTests = "Tests"
+	// class name required: For JUnit5 adds additional ExtendWith(...) class
+	ruleClassForTests = ""
+	excludedFiles = []
+	includedFiles = []
+	ignoredFiles = []
+	imports = []
+	staticImports = []
+
+	// Contract location
+	contractsDslDir = file("src/test/resources/contracts")
+	contractsPath = ""
+	// contractsMode = "REMOTE"
+	/*contractDependency {
+		groupId("com.example")
+		artifactId("contracts")
+		version("1.0.0.RELEASE")
+		classifier("stubs")
+		stringNotation("com.example:contract:1.0.0.RELEASE:stubs")
+	}*/
+	/*contractRepository {
+		repositoryUrl("http://foo.com")
+		username("user")
+		password("pass")
+		proxyPort(1234)
+		proxyHost("host")
+		cacheDownloadedContracts(true)
+	}*/
+	deleteStubsAfterTest = true
+
+	// Stubs
+	stubsSuffix = "stubs"
+	stubsOutputDir = new File(project.buildDir, "stubs")
+
+	// Stubs and Contract JAR
+	disableStubPublication = false
+	excludeBuildFolders = false
+
+	// Extension configuration
+	contractsProperties([
+			foo: "bar"
+	])
+
+	// Experimental
+	// Not required from Greenwich (2.1.0)
+	contractsSnapshotCheckSkip = true
+	assertJsonSize = false
+}
+
+test.enabled = false

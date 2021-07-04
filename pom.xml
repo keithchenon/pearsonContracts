@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.example</groupId>
+	<artifactId>contract-testing-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1.BUILD-SNAPSHOT</version>
+
+	<name>Contract Testing</name>
+	<description>Contract Testing @ Pearson</description>
+
+	<modules>
+		<module>00-app</module>
+		<module>01-introduction-to-testing</module>
+		<module>02-making-sample-fail</module>
+		<module>03-contract-definition</module>
+		<module>04-plugin</module>
+		<module>05-restdocs-wiremock</module>
+		<module>06-stubrunner</module>
+		<module>07-cdc</module>
+		<module>08-advanced</module>
+		<module>09-messaging</module>
+		<module>10-polyglot</module>
+		<module>11-extending</module>
+	</modules>
+
+</project>

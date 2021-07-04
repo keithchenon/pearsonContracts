@@ -1,0 +1,10 @@
+= 08 Use SC-Contract without Spring MockMvc (5)
+
+* Explain that there are cases where people don't use Spring at all
+* Spring Cloud Contract can come in handy there too
+* Let's look at the Javalin framework!
+** Show maven and gradle setup
+** Look at the main class
+** Show the base class
+** Run the test from IDE and show the logs
+

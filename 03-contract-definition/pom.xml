@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.example</groupId>
+		<artifactId>contract-testing-parent</artifactId>
+		<version>0.0.1.BUILD-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<artifactId>03-contract-definition</artifactId>
+	<packaging>pom</packaging>
+
+	<name>03-contract-definition</name>
+	<description>03-contract-definition</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>01-groovy-dsl/demo</module>
+		<module>02-yml-dsl/demo</module>
+		<module>03-groovy-messaging-dsl/demo</module>
+		<module>04-yml-messaging-dsl/demo</module>
+		<module>05-multiple-contracts/demo</module>
+		<module>06-regex-groovy-dsl/demo</module>
+		<module>07-regex-matchers/demo</module>
+		<module>08-execute-code/demo</module>
+	</modules>
+
+</project>

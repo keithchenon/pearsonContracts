@@ -1,0 +1,8 @@
+= 07 Set up regular expressions in a contract via matchers section (5)
+
+* Show the `should_have_info_endpoint.groovy`
+** Explain that some prefer to separate body from matchers
+** You can use `bodyMatchers` section
+** Show what kind of comparisons can take place for the request and response
+* Show the `should_have_info_endpoint.yml`
+** Show the same

@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	logallrefupdates = true
+	precomposeunicode = true
+[remote "origin"]
+	url = file:///Users/marcingrzejszczak2/repo/pearson/contracts/pearson-contracts/07-cdc/05-cdc-git/provider-done/../git-repo/target/gitrepo/.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master

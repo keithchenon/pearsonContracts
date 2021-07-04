@@ -1,0 +1,16 @@
+= 02 Learn the basics of Spring Integration (5)
+
+== Before
+
+* Remove the docker code from test
+* Run AMQP manually
+* Open the management console
+
+== Presentation
+
+* Slides
+* Demo
+** Show the `pom.xml`
+** Show the production code
+** Show the annotations
+** Run the app

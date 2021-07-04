@@ -1,0 +1,18 @@
+= 11 Connect Stub Runner with a real message broker (5)
+
+== Before
+
+* Run docker
+* Remove the `ProcessExecutor` related logic
+
+== Presentation
+
+* Messaging is widely used, we would like to trigger fake messages to a real broker
+* Show the `pom.xml` with stream and rabbit
+* Show the `DemoApplication`
+* Explain what is inside the docker-compose
+* Show rabbitmq management console `:15672`
+* Run the `DemoApplicationTests`
+** put a breakpoint when a trigger should happen and inside the listener
+** show the management console that a message was sent
+** show that the message was received

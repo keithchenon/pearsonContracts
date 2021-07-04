@@ -1,0 +1,30 @@
+= 05 Test your application with SC-Contract and WireMock (5)
+
+==  Before
+
+* Remove entries from `DemoApplicationTests`
+* Remove `FailuresTests`
+
+== Presentation
+
+* Sometimes you need to work with WireMock manually, sometimes you actually should do that
+* Show the `pom.xml`, explain that `WireMock` comes in automatically via the starter
+* Write the tests
+** Connection refused
+** Add WireMock, set the port, send a request again, show WireMock's 404
+** Add a stub, show WireMock's table, fix it
+** Set WireMock's port to `0` and inject it via `wiremock.server.port`
+** Show the `ClassRule` and explain that mappings under `mappings` are always picked up
+** Explain what `MockRestService` is and show you can use it with WireMock
+* Show the `DemoApplication2Tests` class
+** Show `files` and `stubs`, explain the difference
+* Time for failures
+** Rarely do we check how our client reacts on failures
+** WireMock is a perfect tool to inject faults
+* Write tests
+** Setup `RestTemplate` with `SimpleConnectionFactory` having short `read` and `connect` timeouts
+** `should_fail_with_timeout`
+** `should_fail_with_connection_reset_by_peer`
+** `should_fail_with_empty_response`
+** `should_fail_with_malformed`
+** `should_fail_with_random`

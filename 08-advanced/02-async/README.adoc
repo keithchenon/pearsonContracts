@@ -1,0 +1,18 @@
+= 02 Set up your code to do asynchronous contracts (5)
+
+== Before
+
+* Open the JSR on async servlet https://jcp
+.org/en/jsr/detail?id=315
+* Open https://blogs.oracle.com/enterprisetechtips/asynchronous-support-in-servlet-30
+
+== Presentation
+
+* Open the JSR and the Blog and explain what is async servlet
+* Show the `ProducerController` and explain that you can use `Callable` as a response
+** from the point of view of the client, nothing changes
+** from the point of view of mock mvc it does
+** you have to explicitly state that the communication is asynchronous
+* Show the contracts and `async` piece
+* Show the generated tests and stubs
+* Run the consumer side, show that nothing changes on the consumer side

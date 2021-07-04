@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.example</groupId>
+		<artifactId>contract-testing-parent</artifactId>
+		<version>0.0.1.BUILD-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<artifactId>09-messaging</artifactId>
+	<packaging>pom</packaging>
+
+	<name>09-messaging</name>
+	<description>09-messaging</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>02-amqp-intro/producer</module>
+		<module>03-contract-with-amqp/producer</module>
+		<module>03-contract-with-amqp/consumer</module>
+		<module>04-si-intro/demo</module>
+		<module>05-contract-with-si/producer</module>
+		<module>05-contract-with-si/consumer</module>
+		<module>06-scs-intro/producer</module>
+		<module>06-scs-intro/consumer</module>
+		<module>07-contract-with-scs/producer</module>
+		<module>07-contract-with-scs/consumer</module>
+		<module>08-camel-intro/demo</module>
+		<module>09-contract-with-camel/producer</module>
+		<module>09-contract-with-camel/consumer</module>
+	</modules>
+
+</project>

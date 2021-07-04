@@ -1,0 +1,6 @@
+[submodule "spring-cloud-contract-nodejs-external-contracts"]
+	path = spring-cloud-contract-nodejs-external-contracts
+	url = https://github.com/spring-cloud-samples/spring-cloud-contract-nodejs-external-contracts.git
+[submodule "10-polyglot/03-nodejs-producer/producer/src/main/npm/spring-cloud-contract-nodejs-external-contracts"]
+	path = 10-polyglot/03-nodejs-producer/producer/src/main/npm/spring-cloud-contract-nodejs-external-contracts
+	url = https://github.com/spring-cloud-samples/spring-cloud-contract-nodejs-external-contracts.git

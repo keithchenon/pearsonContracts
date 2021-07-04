@@ -1,0 +1,13 @@
+= 12 Debug problems with stubs (5)
+
+== Before
+
+* Change `TestRestTemplate` to `RestTemplate`
+
+== Presentation
+
+* Problems with mappings tend to happen
+** Run the tests and show that they are failing
+** You can put `mappingsOutputFolder` in the annotation to output registered mappings
+** You can set `deleteStubsAfterTest` to false to find the fetched stubs after the test was done
+** Most important is the WireMock report though

@@ -1,0 +1,23 @@
+= 06 Register your own WireMock extension (5)
+
+== Before
+
+* Temporarily add the `producer` and `consumer` maven modules
+
+== Presentation
+
+* You can extend the way WireMock works
+** WireMock has the concept of extensions
+** You can add a response extension
+** Let us assume that we would like to add a header to the response
+* Go to `wiremock-transformer` and show the `TestWireMockExtensions` class
+** Explain that we must implement the interface
+** Explain what the extension does
+** Explain that we add the default transformers
+** Explain that we need add the `spring.factories` entry
+* GO to the `producer`
+** Show that we add the dependency to the plugin's classpath
+** Show the generated stubs
+* Go to the `consumer`
+** Show the dependency
+** Show that the test passes because the header is there

@@ -1,0 +1,18 @@
+= 02 Learn the basics of Spring AMQP (5)
+
+== Before
+
+* Remove the docker code from test
+* Run AMQP manually
+* Open the management console
+
+== Presentation
+
+* Slides
+* Demo
+** Show the `pom.xml`
+** Show the production code and AMQP setup
+** Show the test
+** Put a breakpoint on sending and receiving
+* Run the test
+** Show that the message was sent and received in the mng console

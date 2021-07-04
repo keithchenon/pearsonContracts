@@ -1,0 +1,19 @@
+= 09 See how SC-Contract integrates with Camel (5)
+
+== Presentation
+
+* Producer
+** Show the `pom.xml`
+** Show the contracts
+** Show the production code
+** Explain the flow
+*** From the Person to Verification and to RabbitMQ
+** Show the base class
+*** Mention that the annotation is important
+*** Explain what's going on
+** Show the generated test
+* Consumer
+** Show the `pom.xml`
+** Show the tests
+*** RabbitMQ is not started
+*** The tests are passing

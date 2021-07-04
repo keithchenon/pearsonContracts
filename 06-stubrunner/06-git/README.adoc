@@ -1,0 +1,19 @@
+= 06 Fetch stubs from git (5)
+
+== Before
+
+* Copy `git-repo`
+* Move `git` to `.git`
+* Remove the `static` section from `DemoApplicationTests`
+* Open the documentation
+** Overall idea - https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.1.0.M2/single/spring-cloud-contract.html#_do_i_need_a_binary_storage_cant_i_use_git
+** Properties - https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.1.0.M2/single/spring-cloud-contract.html#scm-stub-downloader
+
+== Presentation
+
+* Show the Git repository setup
+* Show the test
+* Change the repository root URL to point to the copied git repo
+* Emphasise the concepts of protocols
+* Run the test
+* Show the section of the docs

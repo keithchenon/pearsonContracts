@@ -1,0 +1,30 @@
+= 03 Generate Contract DSL from Spring REST Docs (5)
+
+== Before
+
+* Remove the line that adds conracts
+* Make a copy of the lesson for Gradle
+* Remove maven setup, update Gradle setup to remove custom test tasks etc.
+* Open the copy in IDE
+
+== Presentation
+
+* Show the setup for Maven, mention once again what we have
+* How can we be sure that we haven't broken the compatibility?
+** If the tests fail, we break the compatibility
+** How can we double check? What is the source of truth?
+** Contract definition can tell us how the API looks like for the given version
+** We can start generating contract definitions from REST Docs
+** Add the `SpringCloudContractRestDocs.dslContract()` entry for `index`
+** Let's modify the way we package stubs (add `contracts` folder in `stubs.xml`)
+** Let's install the code `./mvnw clean install`
+** Right now we have the current version installed
+* Let's automate the verification of API compatibility check
+** Update the version to 2.0.0
+** Add the `apicompatibility` profile (`scc_apicompat_maven_local` LT)
+** Add the `BaseClass` that sets up `WebApplicationContext` and `RestAssured.webAppContext(...)`
+** Run the build `./mvnw clean install -Papicompatibility -Dlatest.prod.version=0.0.1-SNAPSHOT`)
+** Show that in this easy way you can automate verification of backward compatibility
+
+* Show the Gradle setup of the same thing
+** Run `./gradlew

@@ -1,0 +1,6 @@
+= 03 Generate JUnit, JAX-RS and Spock tests (5)
+
+* Go via each folder and show
+** maven setup
+** gradle setup
+** generated tests

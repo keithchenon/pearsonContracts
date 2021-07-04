@@ -1,0 +1,24 @@
+= 10 Working with CI (5)
+
+== Before
+
+* Start Docker
+* Remove the Gradle related bit from Maven
+
+== Presentation
+
+* Slides
+** Explain that for pre-Greenwich (2.1.0) we had a check to ensure that you're always picking a JAR from a remote location, not the local one
+** It got fixed, the switch is not needed
+** If you're in the pre-Greenwich world, set the switch on a CI server (show the setup in Maven / Gradle)
+* Let's now try to deploy artifacts to Artifactory
+** Show artifactory
+** Run `./mvnw deploy -DcontractsSnapshotCheckSkip=true` show the artifact in Artifactory
+** Run `./gradlew clean build publish`
+** Show entries in Artifactory
+* Now, show the entry in `pom.xml` where we can do backward compatibility check
+** Explain that we can reuse the contracts from Artifactory to generate tests
+** Run `./mvnw clean install -Dlatest.production.version=1.0.0 -PapiCompatibility`
+** Show the generated tests
+* Show Gradle setup
+** Run `./gradlew clean apiCompatibility -PapiCompatibility -DlatestProductionVersion=2.0.0.RELEASE`

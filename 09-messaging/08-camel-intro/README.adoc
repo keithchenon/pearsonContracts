@@ -1,0 +1,14 @@
+= 08 Learn the basics of Apache Camel (5)
+
+== Before
+
+* Run docker
+* Open the management console
+
+== Presentation
+
+* Slides
+* Producer
+** Show the `pom.xml`, show the binder
+** Show the production code and props
+** Run the app and explain what happened

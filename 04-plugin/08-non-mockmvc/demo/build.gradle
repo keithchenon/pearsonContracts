@@ -1,0 +1,64 @@
+buildscript {
+	ext {
+		contractVersion = "${findProperty('verifierVersion') ?: verifierVersion}"
+	}
+	repositories {
+		mavenCentral()
+		mavenLocal()
+		maven { url "http://repo.spring.io/snapshot" }
+		maven { url "http://repo.spring.io/milestone" }
+		maven { url "http://repo.spring.io/release" }
+	}
+	dependencies {
+		classpath("org.springframework.cloud:spring-cloud-contract-gradle-plugin:${contractVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+// apply the contract plugin
+apply plugin: 'spring-cloud-contract'
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	maven { url "http://repo.spring.io/snapshot" }
+	maven { url "http://repo.spring.io/milestone" }
+	maven { url "http://repo.spring.io/release" }
+}
+
+dependencies {
+	implementation 'io.javalin:javalin:2.4.0'
+
+	testImplementation("org.springframework.cloud:spring-cloud-starter-contract-verifier:${findProperty('verifierVersion')}")
+}
+
+// Add the contract plugin setup
+
+contracts {
+	// Test setup
+	testMode = "EXPLICIT"
+	baseClassForTests = "com.example.demo.BaseClass"
+}
+
+test {
+	testLogging {
+		exceptionFormat = 'full'
+	}
+	afterSuite { desc, result ->
+		if (!desc.parent) {
+			println "Results: (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+			if (result.testCount == 0) {
+				throw new IllegalStateException("No tests were found. Failing the build")
+			}
+		}
+	}
+}
+
+

@@ -1,0 +1,32 @@
+= 09 Discover SC-Contract Stub Runner Boot (10)
+
+== Before
+
+* Open https://cloud.spring.io/spring-cloud-cli/
+* Open https://hub.docker.com/u/springcloud/dashboard/
+
+== Presentation
+
+* We can run Stub Runner as a standalone application.
+** Show the `@EnableStubRunnerServer`
+* It can be achieved via (after each execution, run the test)
+** running a JAR
+```
+$ wget -O target/stub-runner.jar "https://search.maven.org/remotecontent?filepath=org/springframework/cloud/spring-cloud-contract-stub-runner-boot/2.0.2.RELEASE/spring-cloud-contract-stub-runner-boot-2.0.2.RELEASE.jar"
+$ java -jar target/stub-runner.jar --stubrunner.stubsMode="LOCAL" --stubrunner.ids="com.example:06-08-app:0.0.1-SNAPSHOT:stubs:9876" --server.port=8083
+```
+** running Spring Cloud CLI
+*** Show the website
+```
+$ sdk install springboot 2.0.7.RELEASE
+$ sdk use springboot 2.0.7.RELEASE
+$ spring install org.springframework.cloud:spring-cloud-cli:2.0.0.RELEASE
+$ cat stubrunner.yml
+$ spring cloud stubrunner
+```
+** we can run `mvn -o org.springframework.cloud:spring-cloud-contract-maven-plugin:2.1.0.BUILD-SNAPSHOT:run -Dspring.cloud.contract.verifier.stubs=com.example:05-02-provider`
+** we can run Docker
+```
+$ cd src/test/resources/docker
+$ ./start.sh
+```

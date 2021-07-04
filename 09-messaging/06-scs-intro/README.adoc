@@ -1,0 +1,26 @@
+= 06 Learn the basics of Spring Cloud Stream (5)
+
+== Before
+
+* Run docker
+* Open the management console
+
+== Presentation
+
+* Slides
+* Producer
+** Show the `pom.xml`, show the binder
+** Show the production code and props
+** Run the app
+* Consumer
+** Show the `pom.xml`, show the binder
+** Show the production code and props
+** Run the app
+* Go to AMQP management console, send a message
+```
+{ "age" : 19 }
+
+contentType: application/json
+```
+* Show the logs in both apps
+

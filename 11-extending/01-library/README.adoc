@@ -1,0 +1,20 @@
+= 01 Create a library with shareable code (10)
+
+== Presentation
+
+* Slides
+* Show the `common` project
+** Show that `spec` is enough of a dependency
+** Show `ConsumerUtils`, explain `ClientDslProperty` is a property for the Client Side - no need for `value()`
+** Show `ProducerUtils`, explain it
+** Show `PatternUtils` - most frequently asked for extension
+* Show the `producer` project
+** Show the dependencies in maven and gradle
+** We're extending the classpath of the plugin
+** We also want the dependency in test scope for IDE
+** IMPORTANT: In a multimodule project you will have a problem if the dependency hasn't been already installed
+*** The best approach is to either exclude a producer from the modules (but still build it) or build the common module separately
+** Show the contracts
+* Show the `consumer` project
+** Show the dependencies in maven and gradle
+** Run the tests on the consumer side

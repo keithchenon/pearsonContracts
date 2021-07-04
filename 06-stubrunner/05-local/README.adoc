@@ -1,0 +1,7 @@
+= 05 Fetch stubs from local (5)
+
+* Short introduction, why you could do LOCAL
+** CDC, working locally until the API is ready
+** Multimodule project, one module installs the stubs, the other reuses it
+* Show the `DemoApplicationTests`
+* Explain the `LOCAL` switch. The same goes for the JUnit rule.

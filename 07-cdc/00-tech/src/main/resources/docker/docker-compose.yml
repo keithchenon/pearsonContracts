@@ -1,0 +1,37 @@
+version: "3"
+services:
+  artifactory:
+    build:
+      context: ""
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+  web:
+    #11.4.4-ce.0
+    # image: 'gitlab/gitlab-ce:latest'
+    image: 'gitlab/gitlab-ce:11.4.4-ce.0'
+    restart: always
+    hostname: 'gitlab.example.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.example.com:9080'
+        gitlab_rails['initial_root_password'] = "rootroot"
+        gitlab_rails['gitlab_shell_ssh_port'] = "9922"
+        postgresql['shared_buffers'] = "256MB"
+        prometheus_monitoring['enable'] = false
+    ports:
+    - '9080:9080'
+    - '9443:443'
+    - '9922:22'
+    volumes:
+    - '${HOME}/gitlab/config:/etc/gitlab'
+    - '${HOME}/gitlab/logs:/var/log/gitlab'
+    - '${HOME}/gitlab/data:/var/opt/gitlab'
+    extra_hosts:
+      jenkins: "${EXTERNAL_IP}"
+    links:
+    - artifactory
+
+# sudo echo "127.0.0.1       gitlab.example.com" >> /etc/hosts
+# https://gitlab.example.com:9080
+# git clone ssh://git@gitlab.example.com:9922/01-provider-maven/provider.git

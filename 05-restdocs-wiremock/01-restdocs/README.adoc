@@ -1,0 +1,30 @@
+= 01 Leverage Spring REST Docs to test your API (10)
+
+== Before
+
+* Make a copy of the lesson for Gradle
+* Remove maven setup, update Gradle setup to remove custom test tasks etc.
+* Open the copy in IDE
+
+== Presentation
+
+* Slides
+* Generate a new web project with rest docs from start.spring.io
+** web, rest docs
+* Create a `FooControllerMockMvcTests`
+** Make the tests fail
+** Add the missing implementation
+** Make the tests pass
+** Show the generated snippets
+* Modify the `pom.xml`
+** add `asciidoctor-maven-plugin` and `copy-resource` plugin and explain what is going on
+** Add `src/main/asciidoc/index.adoc` (`scc_05_01_index_adoc` live template)
+** `./mvnw clean install`
+** show the generated documentation under `target`
+** run the app go to `http://localhost:8080/docs/index.html`
+
+* Go to the Gradle copy
+** Show the Gradle setup
+** Run `./gradlew clean build`
+** show the generated documentation under `build`
+** run the app go to `http://localhost:8080/docs/index.html`

@@ -1,0 +1,1 @@
+relationships = '[{"source":"com.example:beer-api-producer-external","target":"beer-api-consumer"},{"source":"com.example:04-beer-api-producer-external","target":"beer-api-consumer"}]'

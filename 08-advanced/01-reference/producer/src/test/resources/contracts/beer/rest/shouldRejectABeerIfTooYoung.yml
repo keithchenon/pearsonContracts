@@ -1,0 +1,28 @@
+request:
+    method: POST
+    url: '/check'
+    body:
+        name: marcin
+        age: 17
+    headers:
+        "Content-Type": application/json
+    matchers:
+        headers:
+        - key: Content-Type
+          regex: "application/json.*"
+        body:
+        - path: $.age
+          type: by_regex
+          value: "[0-1][0-9]"
+response:
+    status: 200
+    body:
+        status: NOT_OK
+        name: "{{{ jsonpath this '$.name' }}}"
+        path: "{{{ request.path.0 }}}"
+    headers:
+        "Content-Type": application/json
+    matchers:
+        headers:
+        - key: Content-Type
+          regex: "application/json.*"

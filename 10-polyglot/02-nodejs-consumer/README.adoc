@@ -1,0 +1,13 @@
+= 02 Use SC-Contract with NodeJS application as a consumer (10)
+
+== Presentation
+
+* Slides
+* Producer
+** Show the `pom.xml`
+** Show the contracts
+** Show the production code
+** Show the stubs
+* Consumer
+** show `app.js`
+** show `package.json`

@@ -1,0 +1,6 @@
+= 04 Generate tests for WebFlux applications (5)
+
+* Show slides and explain what WebFlux is
+* Go via each folder and show
+** how to set it up in explicit mode (mockmvc, explicit, webtestclient)
+** via webtestclient support

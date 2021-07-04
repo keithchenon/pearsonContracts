@@ -1,0 +1,24 @@
+= 04 Generate Spring REST Docs snippets from Contract DSL (5)
+
+== Presentation
+
+* Slides
+* Explain the application setup
+** Show contract, controller, generated test and base class
+** Mention what we typically have in the base class
+** Show that RestAssured accepts RestDocs as a plugin
+** You can leverage the test class name and method name to create the name of the snippet directory
+** Run the test and show the snippets
+* What else can you do with RestAssured and REST Docs?
+** Even though the Spring team doesn't recommend it, people often use tools like Swagger to evolve their APIs
+** People ask for code generation mechanisms
+** You can leverage REST Docs to achieve both
+* Generation
+** Show `install restdocs-to-postman` maven setup
+** Explain that it's a nodejs tool that does what it says
+** Show the custom `test/bash/generate_swagger.sh` and explain what happens there
+** Last step (since we have the `swagger.json`) is to use the `swagger-codegen-cli-2.2.1` to generate the code
+*** show the maven setup
+*** show `target/generated-sources/swagger_codegen`
+
+NOT OFFICIALLY SUPPORTED BY THE SPRING TEAM

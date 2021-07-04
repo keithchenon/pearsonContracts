@@ -1,0 +1,6 @@
+= 02 Use Stub Runner without Spring via JUnit Rule (5)
+
+* Show JUnit4, `DemoApplicationTests`
+** Show that a `ClassRule` is safer cause there will be no port clash
+** Explain one by one each method
+* Show JUnit5, explain the difference

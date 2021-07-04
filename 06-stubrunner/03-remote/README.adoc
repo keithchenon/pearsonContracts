@@ -1,0 +1,15 @@
+= 03 Fetch stubs from a remote location (5)
+
+== Before
+
+* Run Docker
+* Upload the JAR
+* Remove the `ProcessExecutor` related code from `DemoApplicationTests`
+
+== Presentation
+
+* Show Artifactory, show that the JAR is uploaded
+* Show that you can use a JUnit rule or `@AutoConfigureStubRunner`
+* Run the test, show the test is passing
+* Show the logs and explain what `AetherStubDownloader` does
+* Show the started WireMocks

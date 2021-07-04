@@ -1,0 +1,120 @@
+buildscript {
+	ext {
+		springBootVersion = "${findProperty('bootVersion') ?: bootVersion}"
+	}
+	repositories {
+		mavenCentral()
+		mavenLocal()
+		maven { url "http://repo.spring.io/snapshot" }
+		maven { url "http://repo.spring.io/milestone" }
+		maven { url "http://repo.spring.io/release" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:${findProperty('verifierVersion') ?: verifierVersion}"
+	}
+}
+
+plugins {
+	id "org.asciidoctor.convert" version "1.5.3"
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	maven { url "http://repo.spring.io/snapshot" }
+	maven { url "http://repo.spring.io/milestone" }
+	maven { url "http://repo.spring.io/release" }
+}
+
+ext {
+	// target cause we have it in the same folder with maven
+	snippetsDir = file('target/generated-snippets')
+}
+
+dependencies {
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+	asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor:2.0.3.BUILD-SNAPSHOT'
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc:2.0.3.BUILD-SNAPSHOT'
+	testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
+	testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Greenwich.BUILD-SNAPSHOT"
+	}
+}
+
+test {
+	outputs.dir snippetsDir
+}
+
+asciidoctor {
+	inputs.dir snippetsDir
+	dependsOn test
+}
+
+bootJar {
+	dependsOn asciidoctor
+	from("${asciidoctor.outputDir}/html5") {
+		into 'static/docs'
+	}
+}
+
+task apiCompatibility(type: Test) {
+	description = "Task to run api compatbility tests"
+	testLogging {
+		exceptionFormat = 'full'
+	}
+	jvmArgs = systemPropsFromGradle()
+	include '**/contracttests/**'
+}
+
+private List<String> systemPropsFromGradle() {
+	return project.gradle.startParameter.systemPropertiesArgs.entrySet().
+			collect { "-D${it.key}=${it.value}" }
+}
+
+if (gradle.startParameter.taskRequests.any { it.args.contains("apiCompatibility") }) {
+	apply plugin: 'spring-cloud-contract'
+
+	contracts {
+		basePackageForTests = "com.example.contracttests"
+		baseClassForTests = 'com.example.demo.BaseClass'
+		contractsPath = "/"
+		setContractsMode("LOCAL")
+		contractDependency {
+			groupId = project.group
+			artifactId = project.name
+			delegate.classifier = "stubs"
+			delegate.version = getProp("latestProductionVersion")
+		}
+	}
+}
+
+task stubsJar(type: Jar) {
+	classifier = "stubs"
+	into("META-INF/${project.group}/${project.name}/${project.version}/mappings") {
+		include('**/*.*')
+		from("${project.rootDir}/target/generated-snippets/stubs")
+	}
+	into("META-INF/${project.group}/${project.name}/${project.version}/contracts") {
+		include('**/*.*')
+		from("${project.rootDir}/target/generated-snippets/contracts")
+	}
+}
+// we need the tests to pass to build the stub jar
+stubsJar.dependsOn(test)
+bootJar.dependsOn(stubsJar)

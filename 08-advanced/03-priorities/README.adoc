@@ -1,0 +1,20 @@
+= 03 Work with priorities in contracts (5)
+
+== Before
+
+* Remove the priority fields
+
+== Presentation
+
+* Show two contracts
+** Groovy has the `age` in the body
+** Yaml has `name` and `age` in the body
+* Explain the problem
+** One contract forms a part of the other
+** when you send the request with `name` and `age`, which one should be picked?
+* Run the tests, they will fail
+** Explain the failure
+** Show the WireMock logs in loading up proper contracts
+* Add priority `old: 10`, `young: 20`
+** Rerun the tests, now they pass
+** Explain that sometimes you can be lucky cause the order of loading files will be correct

@@ -1,0 +1,17 @@
+= 08 Leverage stubs per consumer feature to do consumer-driven contract testing (5)
+
+== Before
+
+* Remove the expected exception annotations
+
+== Presentation
+
+* Show the application
+** Show contracts, each for a separate consumer
+** Run the build
+* Show the `DemoApplicationTests`
+** Explain that what we want to achieve is to load only those stubs that we, as consumers, care about
+** Turn on the flag, read the consumer name from `spring.application.name` or set it up manually
+** Run the tests and show that the first will pass, the second will not
+** If stubs per consumer switch if off, both pass
+* Next show the same for the rule version

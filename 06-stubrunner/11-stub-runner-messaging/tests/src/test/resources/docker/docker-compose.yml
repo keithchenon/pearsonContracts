@@ -1,0 +1,21 @@
+version: '2.0'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - 5672:5672
+      - 15672:15672
+  server:
+    image: 06-11-stub-runner-boot-messaging
+    ports:
+      - 7654:7654
+    environment:
+      SERVER_PORT: 7654
+      STUBRUNNER_STUBS_MODE: LOCAL
+    depends_on:
+      - rabbitmq
+    links:
+      - rabbitmq
+    volumes:
+      - ${HOME}/.m2/:/root/.m2:ro

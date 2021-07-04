@@ -1,0 +1,9 @@
+label: negative
+input:
+    triggeredBy: "negative()"
+outputMessage:
+    sentTo: "verifications"
+    body:
+        eligible: false
+    headers:
+        contentType: application/json

@@ -1,0 +1,14 @@
+= 04 Write a messaging contract in YML (5)
+
+== Before
+
+* Remove `src/test/resources/contracts`
+
+== Presentation
+
+* Show the `starter-verifier` dependency in the `pom.xml`
+* Explain that we will use the Contract plugin only to generate tests and stubs - we will not run them
+* Create a new file `should_work_with_messaging.yml`
+* Explain that the name should be meaningful and will be transformed into a test method name
+* Start creating the Contract with all messaging related options and provide description
+* Show the generated test and stubs
